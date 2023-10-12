@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.glControl1 = new OpenTK.GLControl();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -60,6 +60,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.map = new GMap.NET.WindowsForms.GMapControl();
+            this.btnLoadİntoMap = new System.Windows.Forms.Button();
+            this.txtLat = new System.Windows.Forms.TextBox();
+            this.txtLong = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Tempature)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pressure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.high)).BeginInit();
@@ -163,25 +170,25 @@
             // Tempature
             // 
             this.Tempature.BackColor = System.Drawing.Color.DarkGoldenrod;
-            chartArea13.Name = "ChartArea1";
-            this.Tempature.ChartAreas.Add(chartArea13);
-            legend13.Name = "Legend1";
-            this.Tempature.Legends.Add(legend13);
+            chartArea1.Name = "ChartArea1";
+            this.Tempature.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Tempature.Legends.Add(legend1);
             this.Tempature.Location = new System.Drawing.Point(291, 22);
             this.Tempature.Name = "Tempature";
-            series13.BackImageTransparentColor = System.Drawing.Color.White;
-            series13.BackSecondaryColor = System.Drawing.Color.Transparent;
-            series13.BorderColor = System.Drawing.Color.White;
-            series13.BorderWidth = 3;
-            series13.ChartArea = "ChartArea1";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series13.Color = System.Drawing.Color.Red;
-            series13.LabelBackColor = System.Drawing.Color.White;
-            series13.Legend = "Legend1";
-            series13.Name = "Tempature";
-            series13.ShadowColor = System.Drawing.Color.LightGray;
-            series13.YValuesPerPoint = 2;
-            this.Tempature.Series.Add(series13);
+            series1.BackImageTransparentColor = System.Drawing.Color.White;
+            series1.BackSecondaryColor = System.Drawing.Color.Transparent;
+            series1.BorderColor = System.Drawing.Color.White;
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.Red;
+            series1.LabelBackColor = System.Drawing.Color.White;
+            series1.Legend = "Legend1";
+            series1.Name = "Tempature";
+            series1.ShadowColor = System.Drawing.Color.LightGray;
+            series1.YValuesPerPoint = 2;
+            this.Tempature.Series.Add(series1);
             this.Tempature.Size = new System.Drawing.Size(299, 270);
             this.Tempature.TabIndex = 9;
             this.Tempature.Text = "chart1";
@@ -189,20 +196,20 @@
             // Pressure
             // 
             this.Pressure.BackColor = System.Drawing.Color.DarkGoldenrod;
-            chartArea14.Name = "ChartArea1";
-            this.Pressure.ChartAreas.Add(chartArea14);
-            legend14.Name = "Legend1";
-            this.Pressure.Legends.Add(legend14);
+            chartArea2.Name = "ChartArea1";
+            this.Pressure.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.Pressure.Legends.Add(legend2);
             this.Pressure.Location = new System.Drawing.Point(596, 22);
             this.Pressure.Name = "Pressure";
-            series14.BorderWidth = 2;
-            series14.ChartArea = "ChartArea1";
-            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series14.Color = System.Drawing.Color.Lime;
-            series14.Legend = "Legend1";
-            series14.Name = "Pressure";
-            series14.ShadowOffset = 2;
-            this.Pressure.Series.Add(series14);
+            series2.BorderWidth = 2;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series2.Color = System.Drawing.Color.Lime;
+            series2.Legend = "Legend1";
+            series2.Name = "Pressure";
+            series2.ShadowOffset = 2;
+            this.Pressure.Series.Add(series2);
             this.Pressure.Size = new System.Drawing.Size(280, 270);
             this.Pressure.TabIndex = 10;
             this.Pressure.Text = "chart2";
@@ -210,19 +217,19 @@
             // high
             // 
             this.high.BackColor = System.Drawing.Color.DarkGoldenrod;
-            chartArea15.Name = "ChartArea1";
-            this.high.ChartAreas.Add(chartArea15);
-            legend15.Name = "Legend1";
-            this.high.Legends.Add(legend15);
+            chartArea3.Name = "ChartArea1";
+            this.high.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.high.Legends.Add(legend3);
             this.high.Location = new System.Drawing.Point(882, 22);
             this.high.Name = "high";
-            series15.BorderWidth = 3;
-            series15.ChartArea = "ChartArea1";
-            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series15.Color = System.Drawing.Color.Cyan;
-            series15.Legend = "Legend1";
-            series15.Name = "High";
-            this.high.Series.Add(series15);
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Color = System.Drawing.Color.Cyan;
+            series3.Legend = "Legend1";
+            series3.Name = "High";
+            this.high.Series.Add(series3);
             this.high.Size = new System.Drawing.Size(284, 270);
             this.high.TabIndex = 11;
             this.high.Text = "chart1";
@@ -230,19 +237,19 @@
             // Inıs_Hızı
             // 
             this.Inıs_Hızı.BackColor = System.Drawing.Color.DarkGoldenrod;
-            chartArea16.Name = "ChartArea1";
-            this.Inıs_Hızı.ChartAreas.Add(chartArea16);
-            legend16.Name = "Legend1";
-            this.Inıs_Hızı.Legends.Add(legend16);
+            chartArea4.Name = "ChartArea1";
+            this.Inıs_Hızı.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.Inıs_Hızı.Legends.Add(legend4);
             this.Inıs_Hızı.Location = new System.Drawing.Point(1172, 22);
             this.Inıs_Hızı.Name = "Inıs_Hızı";
-            series16.BorderWidth = 3;
-            series16.ChartArea = "ChartArea1";
-            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series16.Color = System.Drawing.Color.Purple;
-            series16.Legend = "Legend1";
-            series16.Name = "Inıs_hızı";
-            this.Inıs_Hızı.Series.Add(series16);
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Color = System.Drawing.Color.Purple;
+            series4.Legend = "Legend1";
+            series4.Name = "Inıs_hızı";
+            this.Inıs_Hızı.Series.Add(series4);
             this.Inıs_Hızı.Size = new System.Drawing.Size(289, 270);
             this.Inıs_Hızı.TabIndex = 12;
             this.Inıs_Hızı.Text = "chart1";
@@ -295,12 +302,97 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // splitter1
+            // 
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter1.Location = new System.Drawing.Point(1463, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(258, 696);
+            this.splitter1.TabIndex = 19;
+            this.splitter1.TabStop = false;
+            // 
+            // map
+            // 
+            this.map.Bearing = 0F;
+            this.map.CanDragMap = true;
+            this.map.EmptyTileColor = System.Drawing.Color.Navy;
+            this.map.GrayScaleMode = false;
+            this.map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.map.LevelsKeepInMemory = 5;
+            this.map.Location = new System.Drawing.Point(1467, 22);
+            this.map.MarkersEnabled = true;
+            this.map.MaxZoom = 2;
+            this.map.MinZoom = 2;
+            this.map.MouseWheelZoomEnabled = true;
+            this.map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.map.Name = "map";
+            this.map.NegativeMode = false;
+            this.map.PolygonsEnabled = true;
+            this.map.RetryLoadTile = 0;
+            this.map.RoutesEnabled = true;
+            this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.map.ShowTileGridLines = false;
+            this.map.Size = new System.Drawing.Size(258, 270);
+            this.map.TabIndex = 20;
+            this.map.Zoom = 0D;
+            // 
+            // btnLoadİntoMap
+            // 
+            this.btnLoadİntoMap.Location = new System.Drawing.Point(1548, 376);
+            this.btnLoadİntoMap.Name = "btnLoadİntoMap";
+            this.btnLoadİntoMap.Size = new System.Drawing.Size(100, 23);
+            this.btnLoadİntoMap.TabIndex = 21;
+            this.btnLoadİntoMap.Text = "Load İnto Map";
+            this.btnLoadİntoMap.UseVisualStyleBackColor = true;
+            this.btnLoadİntoMap.Click += new System.EventHandler(this.btnLoadİntoMap_Click);
+            // 
+            // txtLat
+            // 
+            this.txtLat.Location = new System.Drawing.Point(1548, 324);
+            this.txtLat.Name = "txtLat";
+            this.txtLat.Size = new System.Drawing.Size(100, 20);
+            this.txtLat.TabIndex = 22;
+            // 
+            // txtLong
+            // 
+            this.txtLong.Location = new System.Drawing.Point(1548, 350);
+            this.txtLong.Name = "txtLong";
+            this.txtLong.Size = new System.Drawing.Size(100, 20);
+            this.txtLong.TabIndex = 23;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1497, 327);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Latitude";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1488, 350);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Longitude";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
-            this.ClientSize = new System.Drawing.Size(1725, 701);
+            this.ClientSize = new System.Drawing.Size(1721, 696);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtLong);
+            this.Controls.Add(this.txtLat);
+            this.Controls.Add(this.btnLoadİntoMap);
+            this.Controls.Add(this.map);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.pictureBox1);
@@ -355,6 +447,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Splitter splitter1;
+        private GMap.NET.WindowsForms.GMapControl map;
+        private System.Windows.Forms.Button btnLoadİntoMap;
+        private System.Windows.Forms.TextBox txtLat;
+        private System.Windows.Forms.TextBox txtLong;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 

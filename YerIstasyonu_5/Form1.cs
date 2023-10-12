@@ -13,6 +13,8 @@ using System.Data.OleDb;
 using Swashbuckle.Swagger;
 using System.Web.Http.Filters;
 using AForge.Video.DirectShow;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsPresentation;
 
 namespace YerIstasyonu_5
 {
@@ -76,6 +78,8 @@ namespace YerIstasyonu_5
                 GL.Vertex3(ciz2_x, dikey2, ciz2_y);
                 step += topla;
             }
+
+            
             GL.End();
             GL.Begin(BeginMode.Lines);
             step = eski_step;
@@ -377,6 +381,23 @@ namespace YerIstasyonu_5
             {
                 videoCaptureDevice.Stop();
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLoadİntoMap_Click(object sender, EventArgs e)
+        {
+            map.MapProvider = GMapProviders.BingMap;
+            double lat = Convert.ToDouble(txtLat.Text);
+            double longt = Convert.ToDouble(txtLong.Text);
+            map.Position = new GMap.NET.PointLatLng(lat, longt);
+            map.MinZoom = 5;
+            map.MaxZoom = 100;
+            map.Zoom = 10;
+            map.DragButton = MouseButtons.Left;
         }
 
         private void button6_Click(object sender, EventArgs e)
