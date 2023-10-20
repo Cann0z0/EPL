@@ -54,7 +54,7 @@
             this.Tempature = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Pressure = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.high = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.Inıs_Hızı = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.speed = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -67,10 +67,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Tempature)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pressure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.high)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Inıs_Hızı)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -174,22 +175,26 @@
             this.Tempature.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Tempature.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             this.Tempature.BorderlineWidth = 5;
+            chartArea1.BackColor = System.Drawing.Color.White;
             chartArea1.Name = "ChartArea1";
             this.Tempature.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.Tempature.Legends.Add(legend1);
             this.Tempature.Location = new System.Drawing.Point(291, 22);
             this.Tempature.Name = "Tempature";
+            this.Tempature.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
+            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
             series1.BackImageTransparentColor = System.Drawing.Color.White;
             series1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            series1.BorderColor = System.Drawing.Color.White;
+            series1.BorderColor = System.Drawing.Color.WhiteSmoke;
             series1.BorderWidth = 3;
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Color = System.Drawing.Color.Red;
+            series1.IsXValueIndexed = true;
             series1.LabelBackColor = System.Drawing.Color.White;
             series1.Legend = "Legend1";
-            series1.Name = "Tempature";
+            series1.Name = "Temparature";
             series1.ShadowColor = System.Drawing.Color.LightGray;
             series1.YValuesPerPoint = 2;
             this.Tempature.Series.Add(series1);
@@ -222,6 +227,7 @@
             this.Pressure.Size = new System.Drawing.Size(280, 270);
             this.Pressure.TabIndex = 10;
             this.Pressure.Text = "chart2";
+            this.Pressure.Click += new System.EventHandler(this.Pressure_Click);
             // 
             // high
             // 
@@ -240,34 +246,36 @@
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series3.Color = System.Drawing.Color.Cyan;
             series3.Legend = "Legend1";
-            series3.Name = "High";
+            series3.Name = "high";
             this.high.Series.Add(series3);
             this.high.Size = new System.Drawing.Size(284, 270);
             this.high.TabIndex = 11;
             this.high.Text = "chart1";
+            this.high.Click += new System.EventHandler(this.high_Click);
             // 
-            // Inıs_Hızı
+            // speed
             // 
-            this.Inıs_Hızı.BackColor = System.Drawing.Color.MidnightBlue;
-            this.Inıs_Hızı.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
-            this.Inıs_Hızı.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            this.Inıs_Hızı.BorderlineWidth = 5;
+            this.speed.BackColor = System.Drawing.Color.MidnightBlue;
+            this.speed.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            this.speed.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.speed.BorderlineWidth = 5;
             chartArea4.Name = "ChartArea1";
-            this.Inıs_Hızı.ChartAreas.Add(chartArea4);
+            this.speed.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
-            this.Inıs_Hızı.Legends.Add(legend4);
-            this.Inıs_Hızı.Location = new System.Drawing.Point(1172, 22);
-            this.Inıs_Hızı.Name = "Inıs_Hızı";
+            this.speed.Legends.Add(legend4);
+            this.speed.Location = new System.Drawing.Point(1172, 22);
+            this.speed.Name = "speed";
             series4.BorderWidth = 3;
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series4.Color = System.Drawing.Color.Purple;
             series4.Legend = "Legend1";
-            series4.Name = "Inıs_hızı";
-            this.Inıs_Hızı.Series.Add(series4);
-            this.Inıs_Hızı.Size = new System.Drawing.Size(289, 270);
-            this.Inıs_Hızı.TabIndex = 12;
-            this.Inıs_Hızı.Text = "chart1";
+            series4.Name = "descent_speed";
+            this.speed.Series.Add(series4);
+            this.speed.Size = new System.Drawing.Size(289, 270);
+            this.speed.TabIndex = 12;
+            this.speed.Text = "chart1";
+            this.speed.Click += new System.EventHandler(this.Inıs_Hızı_Click);
             // 
             // dataGridView1
             // 
@@ -395,6 +403,10 @@
             // 
             this.sqLiteCommand1.CommandText = null;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,7 +424,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.Inıs_Hızı);
+            this.Controls.Add(this.speed);
             this.Controls.Add(this.high);
             this.Controls.Add(this.Pressure);
             this.Controls.Add(this.Tempature);
@@ -432,7 +444,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Tempature)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pressure)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.high)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Inıs_Hızı)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -455,7 +467,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart Tempature;
         private System.Windows.Forms.DataVisualization.Charting.Chart Pressure;
         private System.Windows.Forms.DataVisualization.Charting.Chart high;
-        private System.Windows.Forms.DataVisualization.Charting.Chart Inıs_Hızı;
+        private System.Windows.Forms.DataVisualization.Charting.Chart speed;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -468,6 +480,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

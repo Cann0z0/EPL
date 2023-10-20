@@ -19,6 +19,7 @@ using GMap.NET;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms;
 using GMapMarker = GMap.NET.WindowsForms.GMapMarker;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace YerIstasyonu_5
 {
@@ -29,6 +30,7 @@ namespace YerIstasyonu_5
         public Form1()
         {
             InitializeComponent();
+            
         }
         OleDbConnection baglanti = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\junio\OneDrive\Masaüstü\Yer_İstasyonu_veri.xlsx;Extended Properties='Excel 12.0 Xml;HDR=YES;' "); //Veri çekme
         FilterInfoCollection filterInfoCollection; // kamera
@@ -320,7 +322,7 @@ namespace YerIstasyonu_5
 
         private void Form1_Load(object sender, EventArgs e) // kamera
         {
-
+            
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             for (int i = 0;i< filterInfoCollection.Count;i++)
             {
@@ -331,27 +333,7 @@ namespace YerIstasyonu_5
 
             GL.ClearColor(Color.FromArgb(99, 184, 255));
             TimerXYZ.Interval = 1;
-            Pressure.Series["Pressure"].Points.AddXY("1.Second", 70);
-            Pressure.Series["Pressure"].Points.AddXY("2.Second", 69);
-            Pressure.Series["Pressure"].Points.AddXY("3.Second", 67);
-            Pressure.Series["Pressure"].Points.AddXY("4.Second", 65);
-            Pressure.Series["Pressure"].Points.AddXY("5.Second", 64);
-            high.Series["High"].Points.AddXY("1.Second", 1000m);
-            high.Series["High"].Points.AddXY("2.Second", 1050m);
-            high.Series["High"].Points.AddXY("3.Second", 1060m);
-            high.Series["High"].Points.AddXY("4.Second", 1070m);
-            high.Series["High"].Points.AddXY("5.Second", 1080);
-            Inıs_Hızı.Series["Inıs_hızı"].Points.AddXY("1.Second", 15);
-            Inıs_Hızı.Series["Inıs_hızı"].Points.AddXY("2.Second", 20);
-            Inıs_Hızı.Series["Inıs_hızı"].Points.AddXY("3.Second", 25);
-            Inıs_Hızı.Series["Inıs_hızı"].Points.AddXY("4.Second", 30);
-            Inıs_Hızı.Series["Inıs_hızı"].Points.AddXY("5.Second", 35);
-            Tempature.Series["Tempature"].Points.AddXY("1.Second", 25);
-            Tempature.Series["Tempature"].Points.AddXY("2.Second", 45);
-            Tempature.Series["Tempature"].Points.AddXY("3.Second", 35);
-            Tempature.Series["Tempature"].Points.AddXY("4.Second", 15);
-            Tempature.Series["Tempature"].Points.AddXY("5.Second", 10);
-            Tempature.Series["Tempature"].Points.AddXY("6.Second", 50);
+           
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -419,7 +401,32 @@ namespace YerIstasyonu_5
 
         private void Tempature_Click(object sender, EventArgs e)
         {
+            // Check if series exists, if not create one and add it to the series collection
+            if (Tempature.Series.Count == 0)
+            {
+                Series series = new Series("Temperature");
+                Tempature.Series.Add(series);
+            }
 
+            // Clear all points in the series
+            Tempature.Series[0].Points.Clear();
+
+            // Add points to the series
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                int packageCount = i + 1; // Veri kümesindeki her satır için benzersiz bir X değeri kullanın
+                double xMax = dataGridView1.Rows.Count + 10;
+
+                Tempature.ChartAreas[0].AxisX.Maximum = xMax;
+
+                int temp = Convert.ToInt32(dataGridView1.Rows[i].Cells["Temperature"].Value);
+
+                Tempature.Series[0].Points.AddXY(packageCount, temp);
+            }
+
+            // Refresh the chart
+            Tempature.DataBind();
+            
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -427,14 +434,109 @@ namespace YerIstasyonu_5
 
         }
 
+        private async void timer1_Tick(object sender, EventArgs e)
+        {
+            Tempature_Click(sender, e);
+            Pressure_Click(sender,e);
+            high_Click(sender, e);
+            Inıs_Hızı_Click(sender, e);
+            Veriler();
+        }
+
+        private void Pressure_Click(object sender, EventArgs e)
+        {
+            // Check if series exists, if not create one and add it to the series collection
+            if (Pressure.Series.Count == 0)
+            {
+                Series series = new Series("Pre");
+                Pressure.Series.Add(series);
+            }
+
+            // Clear all points in the series
+            Pressure.Series[0].Points.Clear();
+
+            // Add points to the series
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                int packageCount = i + 1; // Veri kümesindeki her satır için benzersiz bir X değeri kullanın
+                double xMax = dataGridView1.Rows.Count + 10;
+
+                Pressure.ChartAreas[0].AxisX.Maximum = xMax;
+
+                int temp = Convert.ToInt32(dataGridView1.Rows[i].Cells["Pressure"].Value);
+
+                Pressure.Series[0].Points.AddXY(packageCount, temp);
+            }
+
+            // Refresh the chart
+            Pressure.DataBind();
+        }
+
+        private void high_Click(object sender, EventArgs e)
+        {
+            // Check if series exists, if not create one and add it to the series collection
+            if (high.Series.Count == 0)
+            {
+                Series series = new Series("High");
+                high.Series.Add(series);
+            }
+
+            // Clear all points in the series
+                high.Series[0].Points.Clear();
+
+            // Add points to the series
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                int packageCount = i + 1; // Veri kümesindeki her satır için benzersiz bir X değeri kullanın
+                double xMax = dataGridView1.Rows.Count + 10;
+
+                high.ChartAreas[0].AxisX.Maximum = xMax;
+
+                int temp = Convert.ToInt32(dataGridView1.Rows[i].Cells["High"].Value);
+
+                high.Series[0].Points.AddXY(packageCount, temp);
+            }
+
+            // Refresh the chart
+            high.DataBind();
+        }
+
+        private void Inıs_Hızı_Click(object sender, EventArgs e)
+        {
+            // Check if series exists, if not create one and add it to the series collection
+            if (speed.Series.Count == 0)
+            {
+                Series series = new Series("Speed");
+                speed.Series.Add(series);
+            }
+
+            // Clear all points in the series
+            speed.Series[0].Points.Clear();
+
+            // Add points to the series
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                int packageCount = i + 1; // Veri kümesindeki her satır için benzersiz bir X değeri kullanın
+                double xMax = dataGridView1.Rows.Count + 10;
+
+                speed.ChartAreas[0].AxisX.Maximum = xMax;
+
+                int temp = Convert.ToInt32(dataGridView1.Rows[i].Cells["Speed"].Value);
+
+                speed.Series[0].Points.AddXY(packageCount, temp);
+            }
+
+            // Refresh the chart
+            speed.DataBind();
+        }
+
         private void button6_Click(object sender, EventArgs e)
         {
-            if (v3rı == false)
-            {
-                v3rı = true;
-
-                Veriler();
-            }
+            Timer timer = new Timer();
+            timer.Interval = 1000; // 1 saniye
+            timer.Tick += timer1_Tick;
+            timer.Tick += new EventHandler(timer1_Tick);
+            timer.Start();
         }
 
         private void button2_Click(object sender, EventArgs e)
