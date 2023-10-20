@@ -60,13 +60,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.map = new GMap.NET.WindowsForms.GMapControl();
             this.btnLoadİntoMap = new System.Windows.Forms.Button();
             this.txtLat = new System.Windows.Forms.TextBox();
             this.txtLong = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             ((System.ComponentModel.ISupportInitialize)(this.Tempature)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pressure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.high)).BeginInit();
@@ -169,7 +169,11 @@
             // 
             // Tempature
             // 
-            this.Tempature.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.Tempature.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Tempature.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            this.Tempature.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Tempature.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.Tempature.BorderlineWidth = 5;
             chartArea1.Name = "ChartArea1";
             this.Tempature.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -192,10 +196,15 @@
             this.Tempature.Size = new System.Drawing.Size(299, 270);
             this.Tempature.TabIndex = 9;
             this.Tempature.Text = "chart1";
+            this.Tempature.Click += new System.EventHandler(this.Tempature_Click);
             // 
             // Pressure
             // 
-            this.Pressure.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.Pressure.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Pressure.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
+            this.Pressure.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Pressure.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.Pressure.BorderlineWidth = 5;
             chartArea2.Name = "ChartArea1";
             this.Pressure.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
@@ -216,7 +225,10 @@
             // 
             // high
             // 
-            this.high.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.high.BackColor = System.Drawing.Color.MidnightBlue;
+            this.high.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
+            this.high.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.high.BorderlineWidth = 5;
             chartArea3.Name = "ChartArea1";
             this.high.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
@@ -236,7 +248,10 @@
             // 
             // Inıs_Hızı
             // 
-            this.Inıs_Hızı.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.Inıs_Hızı.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Inıs_Hızı.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            this.Inıs_Hızı.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.Inıs_Hızı.BorderlineWidth = 5;
             chartArea4.Name = "ChartArea1";
             this.Inıs_Hızı.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
@@ -257,16 +272,18 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(291, 309);
+            this.dataGridView1.Location = new System.Drawing.Point(291, 596);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1170, 294);
+            this.dataGridView1.Size = new System.Drawing.Size(1170, 299);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(291, 609);
+            this.button6.Location = new System.Drawing.Point(291, 528);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(145, 62);
             this.button6.TabIndex = 14;
@@ -276,9 +293,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(23, 389);
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.pictureBox1.ImageLocation = "";
+            this.pictureBox1.Location = new System.Drawing.Point(1, 556);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(235, 268);
+            this.pictureBox1.Size = new System.Drawing.Size(284, 310);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
@@ -286,7 +305,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(21, 668);
+            this.comboBox1.Location = new System.Drawing.Point(12, 874);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(141, 21);
             this.comboBox1.TabIndex = 17;
@@ -294,7 +313,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(183, 666);
+            this.button7.Location = new System.Drawing.Point(159, 872);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 18;
@@ -302,17 +321,9 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // splitter1
-            // 
-            this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(1463, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(258, 696);
-            this.splitter1.TabIndex = 19;
-            this.splitter1.TabStop = false;
-            // 
             // map
             // 
+            this.map.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.map.Bearing = 0F;
             this.map.CanDragMap = true;
             this.map.EmptyTileColor = System.Drawing.Color.Navy;
@@ -333,13 +344,13 @@
             this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.map.ShowTileGridLines = false;
-            this.map.Size = new System.Drawing.Size(258, 270);
-            this.map.TabIndex = 20;
+            this.map.Size = new System.Drawing.Size(288, 348);
+            this.map.TabIndex = 26;
             this.map.Zoom = 0D;
             // 
             // btnLoadİntoMap
             // 
-            this.btnLoadİntoMap.Location = new System.Drawing.Point(1548, 376);
+            this.btnLoadİntoMap.Location = new System.Drawing.Point(1620, 491);
             this.btnLoadİntoMap.Name = "btnLoadİntoMap";
             this.btnLoadİntoMap.Size = new System.Drawing.Size(100, 23);
             this.btnLoadİntoMap.TabIndex = 21;
@@ -349,14 +360,14 @@
             // 
             // txtLat
             // 
-            this.txtLat.Location = new System.Drawing.Point(1548, 324);
+            this.txtLat.Location = new System.Drawing.Point(1620, 411);
             this.txtLat.Name = "txtLat";
             this.txtLat.Size = new System.Drawing.Size(100, 20);
             this.txtLat.TabIndex = 22;
             // 
             // txtLong
             // 
-            this.txtLong.Location = new System.Drawing.Point(1548, 350);
+            this.txtLong.Location = new System.Drawing.Point(1620, 448);
             this.txtLong.Name = "txtLong";
             this.txtLong.Size = new System.Drawing.Size(100, 20);
             this.txtLong.TabIndex = 23;
@@ -364,7 +375,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1497, 327);
+            this.label4.Location = new System.Drawing.Point(1560, 411);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 24;
@@ -374,25 +385,28 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1488, 350);
+            this.label5.Location = new System.Drawing.Point(1551, 448);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 25;
             this.label5.Text = "Longitude";
             // 
+            // sqLiteCommand1
+            // 
+            this.sqLiteCommand1.CommandText = null;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Tan;
-            this.ClientSize = new System.Drawing.Size(1721, 696);
+            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.ClientSize = new System.Drawing.Size(1781, 908);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtLong);
             this.Controls.Add(this.txtLat);
             this.Controls.Add(this.btnLoadİntoMap);
             this.Controls.Add(this.map);
-            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.pictureBox1);
@@ -447,13 +461,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Splitter splitter1;
         private GMap.NET.WindowsForms.GMapControl map;
         private System.Windows.Forms.Button btnLoadİntoMap;
         private System.Windows.Forms.TextBox txtLat;
         private System.Windows.Forms.TextBox txtLong;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }
 

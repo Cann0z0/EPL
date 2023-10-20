@@ -15,6 +15,10 @@ using System.Web.Http.Filters;
 using AForge.Video.DirectShow;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using GMap.NET;
+using GMap.NET.WindowsForms.Markers;
+using GMap.NET.WindowsForms;
+using GMapMarker = GMap.NET.WindowsForms.GMapMarker;
 
 namespace YerIstasyonu_5
 {
@@ -46,7 +50,7 @@ namespace YerIstasyonu_5
         }
         private void silindir(float step, float topla, float radius, float dikey1, float dikey2)
          {
-            float eski_step = 0.1f;
+            float eski_step = 0.15f;
             GL.Begin(BeginMode.Quads);//Y EKSEN CIZIM DAİRENİN
             while (step<=360)
             { if (step < 45)
@@ -152,7 +156,7 @@ namespace YerIstasyonu_5
         } 
         private void koni (float step, float topla, float radius1, float radius2, float dikey1, float dikey2)
         {
-            float eski_step = 0.1f;
+            float eski_step = 0.15f;
             GL.Begin(BeginMode.Lines);//Y EKSEN CIZIM DAİRENİN
             while (step <= 360)
             {
@@ -358,7 +362,7 @@ namespace YerIstasyonu_5
        
 
         
-        private void button7_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e) //camera                                                                                                                 
         {
             videoCaptureDevice=new VideoCaptureDevice(filterInfoCollection[comboBox1.SelectedIndex].MonikerString);
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame1;
@@ -388,9 +392,9 @@ namespace YerIstasyonu_5
 
         }
 
-        private void btnLoadİntoMap_Click(object sender, EventArgs e)
+        private void btnLoadİntoMap_Click(object sender, EventArgs e) //Map
         {
-            map.MapProvider = GMapProviders.BingMap;
+            map.MapProvider = GMapProviders.GoogleMap;
             double lat = Convert.ToDouble(txtLat.Text);
             double longt = Convert.ToDouble(txtLong.Text);
             map.Position = new GMap.NET.PointLatLng(lat, longt);
@@ -398,6 +402,29 @@ namespace YerIstasyonu_5
             map.MaxZoom = 100;
             map.Zoom = 10;
             map.DragButton = MouseButtons.Left;
+
+
+            PointLatLng point = new PointLatLng(lat, longt);
+
+            Bitmap bmpMarker = (Bitmap)Image.FromFile("C:\\Users\\junio\\source\\repos\\YerIstasyonu_5\\YerIstasyonu_5\\bin\\Debug\\img\\cansat3.png");
+            GMapMarker marker = new GMarkerGoogle(point, bmpMarker);
+            GMapOverlay markers = new GMapOverlay("markers");
+            markers.Markers.Add(marker);
+            map.Overlays.Add(markers);
+
+
+
+
+        }
+
+        private void Tempature_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void button6_Click(object sender, EventArgs e)
